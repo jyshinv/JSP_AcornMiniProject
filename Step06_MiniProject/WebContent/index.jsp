@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/index.jsp</title>
+<title>Home</title>
 <jsp:include page="include/resource.jsp"></jsp:include>
 </head>
 <body>
