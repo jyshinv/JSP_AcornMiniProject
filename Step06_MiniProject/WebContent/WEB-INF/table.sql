@@ -8,16 +8,16 @@ CREATE TABLE mini_users(
 );
 
 
-CREATE TABLE mini_board_cafe(
+CREATE TABLE mini_board_cafe( --ok
 	num NUMBER PRIMARY KEY, --글번호
 	writer VARCHAR2(100) NOT NULL, --작성자(로그인 된 아이디)
 	title VARCHAR2(100) NOT NULL, --제목
-	content CROB, --글 내용
+	content CLOB, --글 내용
 	viewCount NUMBER, --조회수
 	regdate DATE --글 작성일 
 );
 
---게시글의 번호를 얻어낼 시퀀스 
+--게시글의 번호를 얻어낼 시퀀스 --ok
 CREATE SEQUENCE mini_board_cafe_seq;
 
 --업로드된 파일의 정보를 저장할 테이블
