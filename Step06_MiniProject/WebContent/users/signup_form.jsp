@@ -4,15 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입</title>
+<title>/users/signup_form.jsp</title>
 <jsp:include page="../include/resource.jsp"></jsp:include>
-<style>
-</style>
 </head>
 <body>
 <jsp:include page="../include/navbar.jsp"></jsp:include>
 <div class="container">
-	<h3>회원 가입</h3>
+	<h1>회원 가입 폼 입니다.</h1>
 	<!-- 
 		[novalidate 로 웹브라우저 자체의 검증기능 사용하지 않기]
 		<input type="email" /> 같은 경우 웹브라우저가 직접 개입하기도 한다.
@@ -45,7 +43,6 @@
 			<%--div class속성값으로 invalid-feedback를 주면 input요소의 class속성값이 is-invalid일 때 경고하고, is-valid일 때 체크표시를 나타내준다. --%>
 			<div class="invalid-feedback">이메일 형식을 확인 하세요.</div>
 		</div>
-		
 		<button class="btn btn-outline-primary" type="submit">가입</button>
 	</form>
 </div>
@@ -129,14 +126,33 @@
 			isIdValid=false;
 			//함수를 여기서 종료
 			return;
-		}else{
-			$("#id").addClass("is-valid");
-			isIdValid=true;
-			
 		}
 		
 		
-		
+		//2.서버에 ajax 요청으로 보내서 사용 가능 여부를 응답 받아서 반응을 보여준다. 
+		$.ajax({
+			url:"checkid.jsp",
+			method:"GET",
+			data:"inputId="+inputId,
+			success:function(responseData){
+				/*
+				checkid.jsp 페이지에서 응답할때 
+				contentType="application/json" 이라고 설정하면
+				함수의 인자로 전달되는 responseData 는 object 이다.
+				{isExist:true} or {isExist:false} 
+				형식의 object 이기 때문에 바로 사용할수 있다. 
+				*/
+				console.log(responseData);
+				if(responseData.isExist){//이미 존재하는 아이디인 경우
+					$("#id").addClass("is-invalid");
+					isIdValid=false;
+				}else{//존재하지 않는 아이디 즉 사용가능한 아이디인 경우 
+					$("#id").addClass("is-valid");
+					//아이디가 유효 하다고 표시한다.(체크표시)
+					isIdValid=true;
+				}
+			}
+		});
 	});
 	
 	
