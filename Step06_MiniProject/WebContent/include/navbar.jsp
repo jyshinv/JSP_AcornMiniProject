@@ -42,7 +42,7 @@ nav요소는 div요소에 의미를 더한 요소이다.
 	<div class="container">
 		<%-- 아래 href는 최상위 경로 요청이다. 링크를 클릭하면 최상위 경로 즉, index.jsp로 이동한다. --%>
 	  	<a class="navbar-brand" href="${pageContext.request.contextPath }/">
-	  		<img style="width:30px;height:30px" src="${pageContext.request.contextPath }/images/kim1.png"/> Acorn
+	  		<img style="width:30px;height:30px" src="${pageContext.request.contextPath }/images/human_icon_girl.png"/> MiniProject
 	  	</a>
 		<%--화면을 줄이면 토글 버튼이 생긴다. data속성을 추가해 버튼을 클릭하면 사라진 링크가 뜰 수 있도록 한다.  --%>
 		<%--눌렀을 때 동작을 결정하는 것은 자바스크립트가 한다. 따라서 jquery를 로딩해주어야한다.  --%>
@@ -56,17 +56,12 @@ nav요소는 div요소에 의미를 더한 요소이다.
 				<%--thisPage에 저장된 값이 "cafe"이면 active시켜라 포커싱된다. --%>
 				<li class="nav-item <%=thisPage.equals("cafe") ? "active" : "" %>">
 					<%--글 목록 링크를 누르면 href로 설정한 곳으로 이동(요청) --%>
-					<a class="nav-link" href="${pageContext.request.contextPath }/cafe/list.jsp">글 목록</a>
+					<a class="nav-link" href="${pageContext.request.contextPath }/cafe/list.jsp">게시판</a>
 				</li>
 				<%--thisPage에 저장된 값이 "file"이면 active시켜라 포커싱된다. --%>
 				<li class="nav-item <%=thisPage.equals("file") ? "active" : "" %>">
 					<%--글 목록 링크를 누르면 href로 설정한 곳으로 이동(요청) --%>
-					<a class="nav-link" href="${pageContext.request.contextPath }/file/list.jsp">자료실</a>
-				</li>
-				<%--thisPage에 저장된 값이 "gallery"이면 active시켜라 포커싱된다. --%>
-				<li class="nav-item <%=thisPage.equals("gallery") ? "active" : "" %>">
-					<%--글 목록 링크를 누르면 href로 설정한 곳으로 이동(요청) --%>
-					<a class="nav-link" href="${pageContext.request.contextPath }/gallery/list.jsp">갤러리</a>
+					<a class="nav-link" href="${pageContext.request.contextPath }/file/list.jsp">파일저장소</a>
 				</li>
 			</ul>
 			<%

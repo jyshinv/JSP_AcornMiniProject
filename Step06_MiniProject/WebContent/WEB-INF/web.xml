@@ -10,6 +10,29 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
+  <!-- 인코딩 필터 정의하기(Tomcat 서버에 필터의 존재를 알린다) -->
+  <!-- 각각의 태그마다 ctrl+space 해서 사용할 수 있는 형식을 확인해보자!  -->
+  <filter>
+  	<!-- 필터의 이름을 정해준다. 꼭 클래스 이름과 동일하지 않아도 된다. -->
+  	<filter-name>EncodingFilter</filter-name>
+  	<!-- EncodingFilger.java가 있는 곳의 패키지명.클래스명을 입력해준다. -->
+  	<filter-class>test.filter.EncodingFilter</filter-class>
+  	<!-- 필터 초기화 파라미터 정의 -->
+  	<init-param>
+  		<!-- 어떤 이름(name)으로 어떤 value(문자열을) 갖고오게 할것인지 정해준다. -->
+  		<param-name>encoding</param-name>
+  		<param-value>utf-8</param-value>
+  	</init-param>
+  </filter>
+  
+  
+  <!-- 인코딩 필터 맵핑하기(어떤 요청에 대해서 필터를 동작하게 할지 동작 조건을 명시한다. -->
+  <filter-mapping>
+  	<filter-name>EncodingFilter</filter-name>
+  	<!-- 최상위 경로 하위의 모든 요청에 대해서 동작하게 설정 -->
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
   <resource-ref>
 	 <description>Oracle Datasource example</description>
 	 <res-ref-name>jdbc/myoracle</res-ref-name>
