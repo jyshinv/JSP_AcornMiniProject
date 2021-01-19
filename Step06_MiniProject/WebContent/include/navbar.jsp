@@ -63,6 +63,11 @@ nav요소는 div요소에 의미를 더한 요소이다.
 					<%--글 목록 링크를 누르면 href로 설정한 곳으로 이동(요청) --%>
 					<a class="nav-link" href="${pageContext.request.contextPath }/file/list.jsp">파일저장소</a>
 				</li>
+				<%--thisPage에 저장된 값이 "file"이면 active시켜라 포커싱된다. --%>
+				<li class="nav-item <%=thisPage.equals("gallery") ? "active" : "" %>">
+					<%--글 목록 링크를 누르면 href로 설정한 곳으로 이동(요청) --%>
+					<a class="nav-link" href="${pageContext.request.contextPath }/gallery/list.jsp">갤러리</a>
+				</li>
 			</ul>
 			<%
 				//로그인 된 아이디가 있는지 읽어와본다.

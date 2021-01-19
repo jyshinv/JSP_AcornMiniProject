@@ -32,6 +32,7 @@
 	<ul class="list-group list-group-flush">
 		<li class="list-group-item"><a href="${pageContext.request.contextPath }/cafe/list.jsp">게시판</a></li>
 		<li class="list-group-item"><a href="${pageContext.request.contextPath }/file/list.jsp">파일저장소</a></li>
+		<li class="list-group-item"><a href="${pageContext.request.contextPath }/gallery/list.jsp">갤러리</a></li>
 	</ul>
 </body>
 </html>

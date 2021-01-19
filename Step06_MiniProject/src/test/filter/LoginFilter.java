@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 //urlpatterns라는 이름의 배열을 생성한다. 각 배열의 요소로 적용할 경로를 적어준다. 
 ///users/private 하위 폴더에 있는 모든 파일에 대해 필터를 적용한다.
 ///cafe/private하위 폴더에 있는 모든 파일에 대해 필터를 적용한다.
-@WebFilter(urlPatterns = {"/users/private/*","/cafe/private/*","/file/private/*"})
+@WebFilter(urlPatterns = {"/gallery/private/*","/users/private/*","/cafe/private/*","/file/private/*"})
 public class LoginFilter implements Filter {
 
 	@Override
