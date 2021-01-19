@@ -56,7 +56,7 @@ nav요소는 div요소에 의미를 더한 요소이다.
 				<%--thisPage에 저장된 값이 "cafe"이면 active시켜라 포커싱된다. --%>
 				<li class="nav-item <%=thisPage.equals("cafe") ? "active" : "" %>">
 					<%--글 목록 링크를 누르면 href로 설정한 곳으로 이동(요청) --%>
-					<a class="nav-link" href="${pageContext.request.contextPath }/cafe/list.jsp">게시판</a>
+					<a class="nav-link" href="${pageContext.request.contextPath }/cafe/list.jsp">공지사항</a>
 				</li>
 				<%--thisPage에 저장된 값이 "file"이면 active시켜라 포커싱된다. --%>
 				<li class="nav-item <%=thisPage.equals("file") ? "active" : "" %>">

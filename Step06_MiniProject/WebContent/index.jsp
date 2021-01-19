@@ -30,9 +30,7 @@
 		</p>
 	<%} %>
 	<ul class="list-group list-group-flush">
-		<li class="list-group-item"><a href="${pageContext.request.contextPath }/users/signup_form.jsp">회원가입</a></li>
-		<li class="list-group-item"><a href="${pageContext.request.contextPath }/users/login_form.jsp">로그인</a></li>
-		<li class="list-group-item"><a href="${pageContext.request.contextPath }/cafe/list.jsp">게시판</a></li>
+		<li class="list-group-item"><a href="${pageContext.request.contextPath }/cafe/list.jsp">공지사항</a></li>
 		<li class="list-group-item"><a href="${pageContext.request.contextPath }/file/list.jsp">파일저장소</a></li>
 	</ul>
 </body>
