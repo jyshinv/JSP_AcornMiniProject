@@ -155,9 +155,9 @@
   <main role="main" class="inner cover">
   	<img src="images/free-icon-team-2936607.png"/>
     <h1 class="cover-heading">Mini Project</h1>
-    <a href="${pageContext.request.contextPath }/cafe/list.jsp" class="btn btn-default btn-lg btn-secondary">Board</a>
-    <a href="${pageContext.request.contextPath }/file/list.jsp" class="btn btn-default btn-lg btn-secondary">File</a>
-    <a href="${pageContext.request.contextPath }/gallery/list.jsp" class="btn btn-default btn-lg btn-secondary">Gallery</a><br />  	
+    <a href="${pageContext.request.contextPath }/cafe/list.jsp" class="btn btn-lg btn-outline-secondary">Board</a>
+    <a href="${pageContext.request.contextPath }/file/list.jsp" class="btn btn-lg btn-outline-secondary">File</a>
+    <a href="${pageContext.request.contextPath }/gallery/list.jsp" class="btn btn-lg btn-outline-secondary">Gallery</a><br />  	
     <a href="https://docs.google.com/document/d/1BJOU68zf_rXJNKHKn8ffXrrG0rsZrJVAEDkNvAU5mos/edit" ><u>acorn web&app class document</u></a>  	
   </main>
  	

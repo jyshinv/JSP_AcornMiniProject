@@ -1,3 +1,5 @@
+<%@page import="test.users.dao.UsersDao"%>
+<%@page import="test.users.dto.UsersDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%-- 
@@ -38,7 +40,7 @@ nav요소는 div요소에 의미를 더한 요소이다.
 	<div class="container">
 		<%-- 아래 href는 최상위 경로 요청이다. 링크를 클릭하면 최상위 경로 즉, index.jsp로 이동한다. --%>
 	  	<a class="navbar-brand" href="${pageContext.request.contextPath }/index.jsp">
-	  		<img style="width:30px;height:30px" src="${pageContext.request.contextPath }/images/human_icon_girl.png"/><b>MiniProject</b>
+	  		<b>MiniProject</b>
 	  	</a>
 		<%--화면을 줄이면 토글 버튼이 생긴다. data속성을 추가해 버튼을 클릭하면 사라진 링크가 뜰 수 있도록 한다.  --%>
 		<%--눌렀을 때 동작을 결정하는 것은 자바스크립트가 한다. 따라서 jquery를 로딩해주어야한다.  --%>
@@ -68,6 +70,8 @@ nav요소는 div요소에 의미를 더한 요소이다.
 			<%
 				//로그인 된 아이디가 있는지 읽어와본다.
 				String id=(String)session.getAttribute("id");
+				//DB에 저장된 가입정보를 읽어온다.
+				UsersDto dto=UsersDao.getInstance().getData(id);
 			%>
 			<%if(id==null){%>
 				<a class="btn btn-outline-success btn-sm" 
@@ -77,7 +81,15 @@ nav요소는 div요소에 의미를 더한 요소이다.
 				href="${pageContext.request.contextPath }/users/signup_form.jsp">회원가입</a>
 			<%}else{ %>
 				<span class="navbar-text">
-					<a href="${pageContext.request.contextPath }/users/private/info.jsp"><%=id%></a>
+					<!-- 로그인 되어있다면 이미지 불러오기 -->
+					<%if(dto.getProfile()==null){ %>
+						<svg xmlns="http://www.w3.org/2000/svg" style="border: 2px solid grey; border-radius: 70px;-moz-border-radius: 70px;-khtml-border-radius: 70px;-webkit-border-radius: 70px; margin-right:5px;" width="40" height="40" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+	  						<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+						</svg>
+					<%}else{ %>
+						<img style="border: 1px solid #000000; border-radius: 70px;-moz-border-radius: 70px;-khtml-border-radius: 70px;-webkit-border-radius: 70px; margin-right:5px; width:40px; height:40px;"src="${pageContext.request.contextPath }<%=dto.getProfile() %>"/>	
+					<%} %>
+					<a style="margin-right: 15px;" href="${pageContext.request.contextPath }/users/private/info.jsp"><%=id%></a>
 					<a class="btn btn-warning btn-sm" href="${pageContext.request.contextPath }/users/logout.jsp">로그아웃</a>
 				</span>
 			<%} %>	
