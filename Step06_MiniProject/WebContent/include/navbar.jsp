@@ -5,21 +5,17 @@
 jsp 페이지 안에서의 주석입니다.
 여기 작성한 내용은 jsp페이지가 해석하지 않습니다.
 클라이언트 웹브라우저에 출력되지 않습니다. 
-
 2.
 <!---->
 이것도 주석이긴 하지만 
 여기 작성한 내용은 그대로 클라이언트에게 출력됩니다.
 클라이언트 웹브라우저는 여기 작성한 내용을 해석하지 않습니다.
-
 3.
 nav요소는 div요소에 의미를 더한 요소이다.
 -navigation 요소를 포함하고 있다고 알려준다.
 -div요소라고 생각하면 편하다!
-
 배경색이 어두운색계열이면 글자색을 밝게 navbar-dark
 배경색이 밝은색 계열이면 글자색을 어둡게 navbar-light 클래스를 추가해야한다.
-
 --%>
 
 <%--
@@ -38,11 +34,11 @@ nav요소는 div요소에 의미를 더한 요소이다.
  %>
  <%--fixed-top속성값을 추가해주면 상단 네비바가 고정된다. 스크롤을 올렸다 내렸다 해도 상단고정
   (단, 컨텐츠가 가려질 수 있음 navabar을 적용한 각 컨텐츠 jsp파일로 가서 padding값 줘야함(css폴더의  custom.css에서 padding값 적용시킴) --%>
- <nav class="navbar navbar-dark navbar-expand-sm fixed-top" style="background-color:#2C3E50">
+ <nav class="navbar navbar-dark navbar-expand-sm fixed-top" style="background-color:#000000">
 	<div class="container">
 		<%-- 아래 href는 최상위 경로 요청이다. 링크를 클릭하면 최상위 경로 즉, index.jsp로 이동한다. --%>
-	  	<a class="navbar-brand" href="${pageContext.request.contextPath }/">
-	  		<img style="width:30px;height:30px" src="${pageContext.request.contextPath }/images/human_icon_girl.png"/> MiniProject
+	  	<a class="navbar-brand" href="${pageContext.request.contextPath }/index.jsp">
+	  		<img style="width:30px;height:30px" src="${pageContext.request.contextPath }/images/human_icon_girl.png"/><b>MiniProject</b>
 	  	</a>
 		<%--화면을 줄이면 토글 버튼이 생긴다. data속성을 추가해 버튼을 클릭하면 사라진 링크가 뜰 수 있도록 한다.  --%>
 		<%--눌렀을 때 동작을 결정하는 것은 자바스크립트가 한다. 따라서 jquery를 로딩해주어야한다.  --%>
@@ -74,10 +70,10 @@ nav요소는 div요소에 의미를 더한 요소이다.
 				String id=(String)session.getAttribute("id");
 			%>
 			<%if(id==null){%>
-				<a class="btn btn-success btn-sm" 
+				<a class="btn btn-outline-success btn-sm" 
 				href="${pageContext.request.contextPath }/users/login_form.jsp">로그인</a>
 				<%-- ml-1 : margin-left 1단계 즉 4px --%>
-				<a class="btn btn-danger btn-sm ml-1" 
+				<a class="btn btn-outline-info btn-sm ml-1" 
 				href="${pageContext.request.contextPath }/users/signup_form.jsp">회원가입</a>
 			<%}else{ %>
 				<span class="navbar-text">
